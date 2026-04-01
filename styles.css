@@ -1,0 +1,156 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0b1a3e 0%, #132d6b 50%, #1a3f7a 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.calculator {
+  width: 340px;
+  background: linear-gradient(160deg, #1b3a6b 0%, #0f2550 100%);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Display */
+.display {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.display-expression {
+  font-size: 15px;
+  color: rgba(173, 200, 255, 0.6);
+  min-height: 22px;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+}
+
+.display-value {
+  font-size: 42px;
+  font-weight: 300;
+  color: #e8f0ff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+  transition: font-size 0.15s ease;
+}
+
+.display-value.shrink {
+  font-size: 30px;
+}
+
+/* Button grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  height: 62px;
+  border: none;
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.93);
+}
+
+/* Number buttons */
+.btn.num {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e0eaff;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn.num:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Function buttons (C, +/-, %) */
+.btn.fn {
+  background: rgba(100, 160, 255, 0.15);
+  color: #8bb8ff;
+  border: 1px solid rgba(100, 160, 255, 0.12);
+}
+
+.btn.fn:hover {
+  background: rgba(100, 160, 255, 0.25);
+}
+
+/* Operator buttons */
+.btn.op {
+  background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 400;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn.op:hover {
+  background: linear-gradient(180deg, #4d8ff7 0%, #3b72ed 100%);
+}
+
+.btn.op.active {
+  background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Equals button */
+.btn.eq {
+  background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn.eq:hover {
+  background: linear-gradient(180deg, #3b72ed 0%, #2557d6 100%);
+}
+
+/* Wide zero button */
+.btn.wide {
+  grid-column: span 2;
+}
+
+/* Keyboard focus ring */
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5);
+}
